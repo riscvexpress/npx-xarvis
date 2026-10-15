@@ -1,9 +1,9 @@
 ifdef XARVIS_HOME
-	include ${XARVIS_HOME}/rvx_config.mh
+	include ${XARVIS_HOME}/rvx_config_path.mh
 endif
 
 include ${RVX_UTIL_HOME}/template_makefile.mh
-GIT_BASE = $(call absolute_path,${CURDIR}/..)
+GIT_BASE = $(abspath ${CURDIR}/..)
 
 DATASET_DIR=${GIT_BASE}/dataset
 VERIFY_DIR=${GIT_BASE}/verify

@@ -27,3 +27,10 @@ def remove_comments(string):
 	string = re.sub(re.compile("/\*.*?\*/",re.DOTALL ) ,"" ,string) # remove all occurrence streamed comments (/*COMMENT */) from string
 	string = re.sub(re.compile("//.*?\n" ) ,"" ,string) # remove all occurrence singleline comments (//COMMENT\n ) from string
 	return string
+
+def get_define_list(define_pragma, path):
+	file_contents = path.read_text(encoding='utf8')
+	file_contents = remove_comments(file_contents)
+	reexp_define = define_pragma + reexp_blank + memorize(wordize(reexp_identifier)) + exist_or_not(reexp_blank + memorize(reexp_exp)) + r'$'
+	re_define = re.compile(reexp_define, re.MULTILINE)
+	return re_define.findall(file_contents)

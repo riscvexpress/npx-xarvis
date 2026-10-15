@@ -35,6 +35,7 @@ def configure_template_text(contents:str, conv_info=None):
     for before_word, after_word in conv_info:
       assert before_word
       conv_dict[before_word] = after_word
+  conv_dict = dict(conv_dict, CURDIR=Path.cwd().as_posix())
   #
   contents = re.sub('\"\${TEMPLATE_CONFIG}\"', config_line, contents)
   #
@@ -44,9 +45,10 @@ def configure_template_text(contents:str, conv_info=None):
   return contents
 
 def configure_template_file(input_file:Path, output_file:Path, conv_dict:dict={}):
-  contents = input_file.read_text()
+  contents = input_file.read_text(encoding='utf8')
   contents = configure_template_text(contents, conv_dict)
-  output_file.write_text(contents)
+  with open(output_file, 'w', encoding='utf8', newline='\n') as f:
+    f.write(contents)
 
 if __name__ == '__main__':
   parser = argparse.ArgumentParser(description='Configure..')

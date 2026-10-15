@@ -59,8 +59,7 @@ Thumbs.db
 .rvx_*
 rvx_*.log
 .login_info
-rvx_python_config.mh
-python3.bat
+rvx_config_python.mh
 
 __pycache__
 dataset

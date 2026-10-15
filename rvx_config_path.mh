@@ -16,6 +16,14 @@
 # ****************************************************************************
 # ****************************************************************************
 
+# make runs simple commands (e.g. echo, rm) without sh, so put git's usr/bin in PATH
+ifeq ($(OS),Windows_NT)
+  SH_BIN_DIR:=
+  ifneq (${SH_BIN_DIR},)
+    export PATH:=${SH_BIN_DIR};${PATH}
+  endif
+endif
+
 export RVX_UTIL_HOME=${XARVIS_HOME}/rvx_util
 
--include ${XARVIS_HOME}/rvx_python_config.mh
+-include ${XARVIS_HOME}/rvx_config_python.mh

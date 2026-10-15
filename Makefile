@@ -1,5 +1,5 @@
 XARVIS_HOME=$(CURDIR)
-include ${XARVIS_HOME}/rvx_config.mh
+include ${XARVIS_HOME}/rvx_config_path.mh
 
 include ./rvx_init.mh
 
@@ -10,8 +10,6 @@ ifeq ($(OS),Windows_NT)
 else
 	${PYTHON3_CMD} ${RVX_UTIL_HOME}/configure_template.py -i ./rvx_setup.sh.template -o ./rvx_setup.sh -c CURDIR=$(CURDIR)
 endif
-
-path_name = Path('\"%\"RVX_MINI_HOME%') / output_dir.name
 
 preinstall:
 	@echo Checking OS type...
