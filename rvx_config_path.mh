@@ -24,6 +24,11 @@ ifeq ($(OS),Windows_NT)
   endif
 endif
 
+ifndef RVX_RELEASE_HOME
 export RVX_UTIL_HOME=${XARVIS_HOME}/rvx_util
+endif
 
 -include ${XARVIS_HOME}/rvx_config_python.mh
+ifndef PYTHON3_CMD
+-include ../rvx_config_python.mh
+endif

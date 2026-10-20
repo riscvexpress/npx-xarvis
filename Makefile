@@ -6,7 +6,6 @@ include ./rvx_init.mh
 config:
 ifeq ($(OS),Windows_NT)
 	setx XARVIS_HOME $(CURDIR)
-	setx XARVIS_NPX_TRANIER_HOME %XARVIS_HOME%/npx_trainer
 else
 	${PYTHON3_CMD} ${RVX_UTIL_HOME}/configure_template.py -i ./rvx_setup.sh.template -o ./rvx_setup.sh -c CURDIR=$(CURDIR)
 endif
