@@ -2,11 +2,8 @@ ifdef XARVIS_HOME
 	include ${XARVIS_HOME}/rvx_config_path.mh
 endif
 
-include ${RVX_UTIL_HOME}/template_makefile.mh
-GIT_BASE = $(abspath ${CURDIR}/..)
-
-DATASET_DIR=${GIT_BASE}/dataset
-VERIFY_DIR=${GIT_BASE}/verify
+DATASET_DIR=${XARVIS_HOME}/dataset
+VERIFY_DIR=${XARVIS_HOME}/verify
 RESULT_DIR=${CURDIR}/result
 
 ifndef GPU_ID
